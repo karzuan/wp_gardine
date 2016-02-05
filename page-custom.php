@@ -31,12 +31,10 @@
                 <div class="col-half text-center">
                   <div class="page-header-wrapper--content">
                    <!-- Заголовок страницы      -->
-                    <h1 class="page-title"><!-- title --></h1>
-                    <ul id="breadcrumbs">
-                      <li><a href="#">Главная</a></li>
-                      <li><a href="#">Шторы</a></li>
-                      <li><a href="#">В гостиную</a></li>
-                    </ul>
+                    <h1 class="page-title"><?php the_title(); ?></h1>
+                    
+                    <?php breadcrumbs();?>
+                    
                   </div>              
                 </div>            
               </div>

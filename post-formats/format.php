@@ -21,7 +21,7 @@
                             <div class="col">
                               <ul class="post-details--meta no-list">
                                 <li><span>В рубрике: </span><a href="#"><?=the_archive_title();?></a></li>
-                                <li><span>Автор: </span><a href="#"><?=get_the_author_link( get_the_author_meta( 'ID' ) );?></a></li>
+                                <li><span>Автор: </span><a href="/<?=get_the_author_link( get_the_author_meta( 'ID' ) );?>"><?=get_the_author_link( get_the_author_meta( 'ID' ) );?></a></li>
                               </ul>
                             </div>
                             <div class="col text-right">

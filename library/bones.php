@@ -298,6 +298,55 @@ function bones_excerpt_more($more) {
 	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'bonestheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'bonestheme' ) .'</a>';
 }
 
+function breadcrumbs(){
+    
+        //Хлебные крошки
+      echo  '<ul id="breadcrumbs">';
+         if ( function_exists('yoast_breadcrumb') ) {
+yoast_breadcrumb('<li>','</li>');
+}								
+       echo      '</ul>';
+}
 
+function blog_piece($content, $num ){
+     //$content = get_the_content(); // for blog_piece()   
+     $content = strip_tags($content);
+     return mb_substr($content, 0, $num);
+                                
+}
+
+
+/************* Функция добавления последних постов из категории ********************/
+
+function my_recent_posts_shortcode($atts){
+ 
+ $q = new WP_Query(
+ array( 'orderby' => 'date', 'posts_per_page' => '3')
+ );
+
+$list = '<div class="row">';
+
+while($q->have_posts()) : $q->the_post();
+$content = get_the_content();
+$list .= '<div class="col-third">'. '<div class="latest-post"><span class="latest-post-time">'. get_the_time( 'd F', $post ) .'</span>'
+
+. '<a class="latest-post-title-link" href="'  . get_permalink() . '">' . get_the_title() . '</a>'
+        
+. '<p class="latest-post-exerpt">' . 
+                                blog_piece($content, 350) . '...</p>'
+. '<p><a href="' . get_permalink() . '">' . 'читать далее' . '</a></p>'
+
+.'</div>'
+.'</div>';
+
+endwhile;
+
+wp_reset_query();
+
+return $list . '</div>';
+
+}
+
+add_shortcode('ZIHUATANUKA', 'my_recent_posts_shortcode');
 
 ?>
