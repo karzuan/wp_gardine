@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Custom Page Example
+ Template Name: страница каталога
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -15,28 +15,46 @@
 
 <?php get_header(); ?>
 
-			<div id="content">
+			<main class="cd-main-content">
+                            
+                            
+                            
+                            
+              <div class="outer-container" >    
+      <!-- Шапка страницы с фоном-->
+        <div class="page-header-wrapper row j-center" style="background: url('../img/07-2.jpg'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
+                    <!--*********************
+                        function change_bg()
+                        *********************-->
+          <div class="page-header-wrapper--overlay"></div>
+            <div class="container">
+                <div class="col-half text-center">
+                  <div class="page-header-wrapper--content">
+                   <!-- Заголовок страницы      -->
+                    <h1 class="page-title"><!-- title --></h1>
+                    <ul id="breadcrumbs">
+                      <li><a href="#">Главная</a></li>
+                      <li><a href="#">Шторы</a></li>
+                      <li><a href="#">В гостиную</a></li>
+                    </ul>
+                  </div>              
+                </div>            
+              </div>
+          </div>
+      </div>
 
-				<div id="inner-content" class="wrap cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+
+			     
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<h1 class="page-title"><?php the_title(); ?></h1>
-
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
-
-
-								</header>
-
-								<section class="entry-content cf" itemprop="articleBody">
+							    <div class="outer-container">
+                                                                <div id="single-page-content">
+                                                                    <div class="inner-wrap">
+                                                                        <div class="container">
+                                                                            <!-- Редактируемый контент -->
+                                                                                <div class="entry-content">
 									<?php
 										// the content (pretty self explanatory huh)
 										the_content();
@@ -60,42 +78,25 @@
 											'link_after'  => '</span>',
 										) );
 									?>
-								</section>
+								                </div>
+                                                                        </div>
 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-								<footer class="article-footer">
-
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+								<footer class="article-footer cf">
 
 								</footer>
 
-								<?php comments_template(); ?>
+								<?php //comments_template(); ?>
 
 							</article>
 
-							<?php endwhile; else : ?>
+							<?php endwhile; endif; ?>
 
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-						</main>
-
-						<?php get_sidebar(); ?>
-
-				</div>
-
-			</div>
-
+						<?php //get_sidebar(); ?>
+                                    
+			</main>
 
 <?php get_footer(); ?>

@@ -151,7 +151,7 @@
     					<li><a href="/manufacture">Производство</a></li>
     					<li><a href="/howto">Как выбрать шторы?</a></li>
     					<li class="logo-bottom"><a href="<?php echo home_url(); ?>" rel="nofollow">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/library/img/logo-invert.png" alt="GardineGallery logo"></a></li>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/library/images/logo-invert.png" alt="GardineGallery logo"></a></li>
     					<li><a href="/business">Для бизнеса</a></li>
     					<li><a href="/architect">Архитекторам и дизайнерам</a></li>
     					<li><a href="/blog">Блог</a></li>

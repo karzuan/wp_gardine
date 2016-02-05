@@ -16,11 +16,6 @@
 
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
                 
-                                          <!-- Post ft img -->
-                        <div class="blog-single--post-main-img">
-                          <?=the_post_thumbnail('large');?>
-                        </div>
-
                           <!-- Post details -->
                           <div class="blog-single--post-details row">
                             <div class="col">
@@ -40,6 +35,12 @@
                           
                           <!-- Single title -->
                           <h1 class="text-center"><?php the_title(); ?></h1>
+                          
+                         <!-- Post ft img -->
+                        <div class="blog-single--post-main-img">
+                          <?=the_post_thumbnail('large');?>
+                        </div>
+
                           
                           <!-- Content! -->
                           <div class="single-entry-content">
@@ -66,9 +67,9 @@
 
                 <footer class="article-footer">
 
-                  <?php printf( __( 'filed under', 'bonestheme' ).': %1$s', get_the_category_list(', ') ); ?>
+                  <?php //printf( __( 'filed under', 'bonestheme' ).': %1$s', get_the_category_list(', ') ); ?>
 
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+                    <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
                 </footer> <?php // end article footer ?>
 

@@ -43,6 +43,32 @@
 							</article>
 
 						<?php endif; ?>
+                                                    
+                      <!-- комменты, поделиться !-->
+                      
+                      	<br>
+
+						<p><b>Оставить комментарий:</b></p>
+
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 4868122, onlyWidgets: true});
+</script>
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+    $width = 80;
+VK.Widgets.Comments("vk_comments", {limit: 10, width: '$width', attach: "*"});
+</script>
+
+					<footer class="post-share">
+						<p><b>Поделится статьей с друзьями:</b> <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div></p>
+					</footer>
+
+                      <!-- комменты, поделиться !-->
 
 					</main>
 

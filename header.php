@@ -21,7 +21,7 @@
 <body>
     
        	<header class="cd-main-header">
-    		<a class="cd-logo" href="#0"><img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Gardine Gallery"></a>
+    		<a class="cd-logo" href="/"><img src="<?php echo get_template_directory_uri(); ?>/library/images/logo.png" alt="Gardine Gallery"></a>
     
     		<ul class="cd-header-buttons">
     			<li><a class="cd-search-trigger" href="#cd-search">Поиск<span></span></a></li>
