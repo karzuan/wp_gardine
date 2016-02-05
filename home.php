@@ -62,13 +62,20 @@
                                 echo blog_piece($content, 550); // in bones
                                 ?>...
                           </p>
-                          
+
                           <!-- Bottom post details panel -->
                           <div class="post-details--bottom-panel row">
                             <div class="col">
-                              <ul class="post-details--meta no-list">
-                                <li><span>В рубрике: </span><a href="#">категория</a></li>
-                                <li><span>Автор: </span><a href="<?=get_the_author_link( get_the_author_meta( 'ID' ) );?>"><?=get_the_author_link( );?></a></li>
+                              <ul class="post-details--meta no-list"><?php 
+                                                                        $categories = get_the_category();//fetch the category
+                                                                        $cat = my_category($categories);
+                                                                        //$cat ['name'] = 'some';
+                                                                        //$link = $cat -> link;
+                                                                        //$name = $cat -> name;
+                                                                    
+                                                                        ?>
+                                <li><span>В рубрике: </span><a href="<?=$cat[link];?>"><?=$cat[name];?></a></li>
+                                <li><span>Автор: </span><a href="#"><?=get_the_author_link( );?></a></li>
                               </ul>
                             </div>
                             <div class="col text-right">

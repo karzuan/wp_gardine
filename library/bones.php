@@ -349,4 +349,22 @@ return $list . '</div>';
 
 add_shortcode('ZIHUATANUKA', 'my_recent_posts_shortcode');
 
+
+
+////// категории статей
+
+    function my_category($categories){      
+             
+             // function got category from fetching
+             $category_id = $categories[0]->cat_ID;
+             $current_name = $categories[0]->cat_name;
+          
+             $cat = array(
+              "ID"   => $category_id,
+              "name" => $current_name,
+              "link" => get_category_link( $category_id )
+                    );
+             
+          return $cat; // returns array
+    }
 ?>

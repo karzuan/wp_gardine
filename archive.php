@@ -2,19 +2,20 @@
 
    <main class="cd-main-content">
     <div class="outer-container" >    
-      <!-- Шапка страницы с фоном-->
-        <div class="page-header-wrapper row j-center" style="background: url('../img/blog-bg.jpg'); background-repeat: no-repeat; background-size: cover;">
+<!-- Шапка страницы с фоном-->
+        <div class="page-header-wrapper row j-center" style="background: url('../img/07-2.jpg'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
+                    <!--*********************
+                        function change_bg()
+                        *********************-->
           <div class="page-header-wrapper--overlay"></div>
             <div class="container">
                 <div class="col-half text-center">
                   <div class="page-header-wrapper--content">
                    <!-- Заголовок страницы      -->
-                    <h1 class="page-title"><?=the_archive_title();?></h1>
-                    <ul id="breadcrumbs">
-                      <li><a href="#">Главная</a></li>
-                      <li><a href="#">Блог</a></li>
-                      <li><a href="#"><?=the_archive_title();?></a></li>
-                    </ul>
+                    <h1 class="page-title">Блог</h1>
+                    
+                    <?php breadcrumbs();?>
+                    
                   </div>              
                 </div>            
               </div>

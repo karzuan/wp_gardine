@@ -2,7 +2,7 @@
 
 			<main class="cd-main-content">
 
-              <div class="outer-container" >    
+   
       <!-- Шапка страницы с фоном-->
         <div class="page-header-wrapper row j-center" style="background: url('../img/07-2.jpg'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
                     <!--*********************
@@ -23,7 +23,13 @@
           </div>
       </div>
 
-
+<div class="outer-container">
+        <div id="single-page-content">
+          <div class="inner-wrap">
+            <div class="container">
+            <!-- Редактируемый контент -->
+            <div class="entry-content">
+ 
 
 			     
 
@@ -70,7 +76,12 @@
 							<?php endwhile; endif; ?>
 
 						<?php //get_sidebar(); ?>
-                                    
+                                 </div>
+              </div>
+
+            </div>
+          </div>
+        </div>   
 			</main>
 
 <?php get_footer(); ?>
