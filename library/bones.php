@@ -367,4 +367,17 @@ add_shortcode('ZIHUATANUKA', 'my_recent_posts_shortcode');
              
           return $cat; // returns array
     }
+    
+    
+////// поиск для шапки
+    
+    function my_searchform(){
+        
+   $list .= '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '">'
+        
+        . '<input type="search" placeholder="Поиск..." id="s" name="s" value="">'
+        . '</form>';
+   return $list;
+    
+                            }
 ?>

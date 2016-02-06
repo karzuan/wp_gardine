@@ -20,7 +20,11 @@
                           <div class="blog-single--post-details row">
                             <div class="col">
                               <ul class="post-details--meta no-list">
-                                <li><span>В рубрике: </span><a href="#"><?=the_archive_title();?></a></li>
+                                                                        <?php 
+                                                                        $categories = get_the_category();//fetch the category
+                                                                        $cat = my_category($categories);
+                                                                        ?>
+                                <li><span>В рубрике: </span><a href="<?=$cat[link];?>"><?=$cat[name];?></a></li>
                                 <li><span>Автор: </span><a href="/<?=get_the_author_link( get_the_author_meta( 'ID' ) );?>"><?=get_the_author_link( get_the_author_meta( 'ID' ) );?></a></li>
                               </ul>
                             </div>

@@ -17,12 +17,12 @@ msgstr ""
 
 #: ../404.php:13
 msgid "Epic 404 - Article Not Found"
-msgstr "Ошибка 404 - Статья не найдена"
+msgstr "Ошибка 404 - страница не найдена"
 
 #: ../404.php:19
 msgid ""
 "The article you were looking for was not found, but maybe try looking again!"
-msgstr "Статья, которую вы ищите не найдена, попробуйте ещё раз!"
+msgstr "Статья или страница, которую вы ищите не найдена. Восможно она удалена или перемещена. Ещё раз внимательно перепроверьте введенный URL или воспользуйтесь поиском."
 
 #: ../404.php:31
 msgid "This is the 404.php template."
@@ -54,13 +54,13 @@ msgstr "Следующие записи &raquo;"
 #: ../page-custom.php:47 ../page.php:41 ../single-custom_type.php:58
 #: ../single.php:41 ../taxonomy-custom_cat.php:69
 msgid "Oops, Post Not Found!"
-msgstr "Ой, пост не найден!"
+msgstr "К сожалению, пост не найден!"
 
 #: ../archive-custom_type.php:57 ../archive.php:88 ../index.php:57
 #: ../page-custom.php:50 ../page.php:44 ../single-custom_type.php:61
 #: ../single.php:44 ../taxonomy-custom_cat.php:72
 msgid "Uh Oh. Something is missing. Try double checking things."
-msgstr "Опс. Что-то пропущено. Попробуйте всё перепроверить."
+msgstr "Ошибка. Проверьте орфографию или введите запрос по-другому."
 
 #: ../archive-custom_type.php:60
 msgid "This is the error message in the custom posty type archive template."
@@ -195,15 +195,19 @@ msgstr "Это сообщение об ошибке в шаблоне page.php."
 
 #: ../search.php:53
 msgid "Sorry, No Results."
-msgstr "Извините, ничего не найдено."
+msgstr "Извините, по вашему запросу ничего не найдено."
 
 #: ../search.php:56
 msgid "Try your search again."
-msgstr "Попробуйте поискать ещё раз."
+msgstr "Попробуйте ввести свой запрос по-другому."
 
 #: ../search.php:59
 msgid "This is the error message in the search.php template."
 msgstr "Это сообщение об ошибке в шаблоне search.php."
+
+#: ../search.php:8
+msgid "Search Results for:"
+msgstr "Результаты поиска для:"
 
 #: ../single-custom_type.php:64
 msgid "This is the error message in the single-custom_type.php template."
@@ -223,7 +227,7 @@ msgstr "Главное меню"
 
 #: ../library/bones.php:207
 msgid "Footer Links"
-msgstr "Ссылки в футере"
+msgstr "Ссылки в футере сайта"
 
 #: ../library/custom-post-type.php:24
 msgid "Custom Types"

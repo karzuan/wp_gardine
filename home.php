@@ -69,10 +69,6 @@
                               <ul class="post-details--meta no-list"><?php 
                                                                         $categories = get_the_category();//fetch the category
                                                                         $cat = my_category($categories);
-                                                                        //$cat ['name'] = 'some';
-                                                                        //$link = $cat -> link;
-                                                                        //$name = $cat -> name;
-                                                                    
                                                                         ?>
                                 <li><span>В рубрике: </span><a href="<?=$cat[link];?>"><?=$cat[name];?></a></li>
                                 <li><span>Автор: </span><a href="#"><?=get_the_author_link( );?></a></li>

@@ -158,9 +158,10 @@ function bones_register_sidebars() {
 		'id' => 'sidebar1',
 		'name' => __( 'Sidebar 1', 'bonestheme' ),
 		'description' => __( 'The first (primary) sidebar.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'class' => 'side-widget-description',
+		'before_widget' => '<div class="side-widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
+		'before_title' => '<h4 class="side-widget--title">',
 		'after_title' => '</h4>',
 	));
 

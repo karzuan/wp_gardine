@@ -139,9 +139,7 @@
     	</nav> <!-- cd-nav -->
     
     	<div id="cd-search" class="cd-search">
-    		<form>
-    			<input type="search" placeholder="Поиск...">
-    		</form>
+    		<?=my_searchform();?>
     	</div>
      <footer id="globalfooter" class="b_site_footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
     	<div class="container">

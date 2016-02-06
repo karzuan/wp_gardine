@@ -1,43 +1,42 @@
 <?php get_header(); ?>
 
-			<div id="content">
+			<main class="cd-main-content">
 
-				<div id="inner-content" class="wrap cf">
 
-					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+<div class="outer-container">
+        <div id="single-page-content">
+          <div class="inner-wrap">
+            <div class="container">
+            <!-- Редактируемый контент -->
+            <div class="entry-content">
 
-						<article id="post-not-found" class="hentry cf">
 
-							<header class="article-header">
 
-								<h1><?php _e( 'Epic 404 - Article Not Found', 'bonestheme' ); ?></h1>
+								<section class="entry-content cf" itemprop="articleBody">
+									
+                                                                    <h1><?php _e( 'Epic 404 - Article Not Found', 'bonestheme' ); ?></h1>
+                                                                    <p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'bonestheme' );   ?></p>
+                                                                    <p><?php get_search_form(); ?></p>
+                                                                    
+								</section> <?php // end article section ?>
 
-							</header>
+								<footer class="article-footer cf">
 
-							<section class="entry-content">
+								</footer>
 
-								<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'bonestheme' ); ?></p>
+								<?php //comments_template(); ?>
 
-							</section>
+						
 
-							<section class="search">
+						
+					<?php //get_sidebar(); ?>
+                                      
+                                 </div>
+              </div>
 
-									<p><?php get_search_form(); ?></p>
-
-							</section>
-
-							<footer class="article-footer">
-
-									<p><?php _e( 'This is the 404.php template.', 'bonestheme' ); ?></p>
-
-							</footer>
-
-						</article>
-
-					</main>
-
-				</div>
-
-			</div>
+            </div>
+          </div>
+        </div>   
+			</main>
 
 <?php get_footer(); ?>

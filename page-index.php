@@ -11,7 +11,7 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
-?>
+?> 
 
 <?php get_header(); ?>
 
