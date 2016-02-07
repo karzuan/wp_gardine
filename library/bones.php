@@ -384,7 +384,6 @@ add_shortcode('ZIHUATANUKA', 'my_recent_posts_shortcode');
 ////********** add custom Background to pages *********////
                            
 
-
   function adding_custom_meta_boxes( $pages ) {
       
     
@@ -401,25 +400,40 @@ add_action( 'add_meta_boxes', 'adding_custom_meta_boxes', 10, 2 );
 
     function render_my_meta_box($post)
 {
-global $wpdb;
+        
+        global $wpdb;
+$b_uri = $wpdb->get_var( 'SELECT b_uri FROM kot_posts WHERE id = ' . get_the_ID () );
 
-$form .= '<form method="post" action="/wp-content/themes/gardine_bones/library/b_uri.php"><table ">
+     if($b_uri) { 
+        $b_uri = $b_uri ;        
+                      }
+     else $b_uri = 'пустое_поле';
+    
+?>
 
-<tr>
-    <td valign="top"><label>Введите URL изображения</label></td>
-    <td valign="top"><input value='. pages_back($page_id) .' type="text" name="b_uri" size="60%" maxlength="255"></td>
-</tr>
- 
-<tr>
-    <td>
-        <input type="submit" value="сохранить">
-    </td>
- </tr>
- </table>
- </form>';
-echo $form;
+    <label>Введите URL изображения</label>
+    <input class="postbox" value='<?=$b_uri;?>' type="text" name="b_uri" size="60%" maxlength="255">
+
+ <?php
 }
 
+add_action( 'save_post', 'my_meta_box_save_data' );
+function my_meta_box_save_data( $page_id ) {
+    if ( array_key_exists('b_uri', $_POST ) ) {
+     global $wpdb;
+     $table = 'kot_posts';
+     $data = array( 
+		'b_uri' => stripslashes( $_POST['b_uri'])	// string
+                  );
+          
+     $where = array( 'ID' => $page_id );
+     
+     
+     
+     $wpdb->update( $table, $data, $where, $format = null, $where_format = null );
+    }
+}
+/*
  function update_my_meta_box($b_uri, $post){
      $table = 'kot_posts';
      $data = array( 
@@ -432,7 +446,7 @@ echo $form;
      
      $wpdb->update( $table, $data, $where, $format = null, $where_format = null );
                                     }
-
+*/
 
      
      function pages_back($page_id){
