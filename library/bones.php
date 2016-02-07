@@ -380,4 +380,124 @@ add_shortcode('ZIHUATANUKA', 'my_recent_posts_shortcode');
    return $list;
     
                             }
+                            
+////********** add custom Background to pages *********////
+                           
+
+
+  function adding_custom_meta_boxes( $pages ) {
+      
+    
+    add_meta_box( 
+        'my-meta-box',
+        'Изображение фона заголовка(шапки)',
+        'render_my_meta_box',
+        'page',
+        'normal',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes', 'adding_custom_meta_boxes', 10, 2 );
+
+    function render_my_meta_box($post)
+{
+global $wpdb;
+
+$form .= '<form method="post" action="/wp-content/themes/gardine_bones/library/b_uri.php"><table ">
+
+<tr>
+    <td valign="top"><label>Введите URL изображения</label></td>
+    <td valign="top"><input value='. pages_back($page_id) .' type="text" name="b_uri" size="60%" maxlength="255"></td>
+</tr>
+ 
+<tr>
+    <td>
+        <input type="submit" value="сохранить">
+    </td>
+ </tr>
+ </table>
+ </form>';
+echo $form;
+}
+
+ function update_my_meta_box($b_uri, $post){
+     $table = 'kot_posts';
+     $data = array( 
+		'b_uri' => stripslashes($b_uri)	// string
+                  );
+          
+     $where = array( 'ID' => $page_id );
+     
+     
+     
+     $wpdb->update( $table, $data, $where, $format = null, $where_format = null );
+                                    }
+
+
+     
+     function pages_back($page_id){
+         global $wpdb;
+         // fetch df if there is url for background
+         $results = $wpdb->get_var( 'SELECT b_uri FROM kot_posts WHERE id = ' .$page_id );
+         
+         if ( $results ){
+             // sql  querry
+             // //kot_posts - таблица
+             // // // b_uri - коломнa
+             $b_iri = $results;
+             
+         }
+         
+         else {
+             // default picture
+         $b_iri = 'https://lh3.googleusercontent.com/-P67hv3NzJsk/VSjasTIFzcI/AAAAAAAAADA/0hPeCcG-KXE/w1498-h1124-no/';
+// get_template_directory_uri();    '/library/images/anypicture.jpg';
+              }
+         //return $b_iri[b_uri];
+         return $b_iri;
+         // array(1) { [0]=> object(stdClass)#4479 (1) { ["b_uri"]=> string(18) "102010102010120102" } }
+     }
+     ////********************** END ************************///
+     ////********** add custom Background to pages *********///
+     
+  //**********************/ START \**************************\\
+//******************/ GET FEATURED IMAGE \**********************\\
+ // IN DA POSTS AREA
+     
+//add_theme_support('post-thumbnails');
+//add_image_size('featured_preview', 55, 55, true);
+     
+     
+function ST4_get_featured_image($post_ID) {
+    $post_thumbnail_id = get_post_thumbnail_id($post_ID);
+    if ($post_thumbnail_id) {
+        $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'featured_preview');
+        return $post_thumbnail_img[0];
+    }
+}
+
+// ADD NEW COLUMN
+function ST4_columns_head($defaults) {
+    $defaults['featured_image'] = 'Featured Image';
+    return $defaults;
+}
+ 
+// SHOW THE FEATURED IMAGE
+function ST4_columns_content($column_name, $post_ID) {
+    if ($column_name == 'featured_image') {
+        $post_featured_image = ST4_get_featured_image($post_ID);
+        if ($post_featured_image) {
+            echo '<img width="125" height="125" src="' . $post_featured_image . '" />';
+        }
+    }
+                                                      }
+
+/// hooks
+add_filter('manage_posts_columns', 'ST4_columns_head');
+add_action('manage_posts_custom_column', 'ST4_columns_content', 10, 2);
+
+
+
+//******************\ GET FEATURED IMAGE /**********************/
+ //************************\ END /*****************************//
 ?>
