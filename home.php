@@ -45,7 +45,7 @@
                                                                 
                                                              <!-- Post ft img -->
                                                                 <div class="blog-standart--post-main-img">
-                                                                        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'bones-thumb-300' ); ?></a>
+                                                                        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'bones-thumb-910' ); ?></a>
                                                                 </div>
                                                                                         <!-- Post details -->
                         <div class="blog-standart--post-details">
@@ -74,7 +74,7 @@
                                 <li><span>Автор: </span><a href="<?=get_author_posts_url( get_the_author_id() );?>"><?=get_the_author_link( );?></a></li>
                               </ul>
                             </div>
-                            <div class="col text-right">    
+                            <div class="col-quarter text-right">    
                               <div class="post-details--read-more-button">
                                 <a href="<?php the_permalink() ?>" class="btn btn-primary">Читать далее</a>
                               </div>

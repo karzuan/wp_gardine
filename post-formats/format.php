@@ -14,16 +14,24 @@
                 */
               ?>
 
-              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+              <article id="post-<?php the_ID(); ?>" role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
                 
+                  
+                        <!-- Post ft img -->
+                        <div class="blog-single--post-main-img text-center">
+                        <?=the_post_thumbnail('full');// actual full size?>
+                        </div>
                           <!-- Post details -->
                           <div class="blog-single--post-details row">
                             <div class="col">
+                                    
                               <ul class="post-details--meta no-list">
+                                 
                                                                         <?php 
                                                                         $categories = get_the_category();//fetch the category
                                                                         $cat = my_category($categories);
                                                                         ?>
+                                
                                 <li><span>В рубрике: </span><a href="<?=$cat[link];?>"><?=$cat[name];?></a></li>
                                 <li><span>Автор: </span><a href="<?=get_author_posts_url( get_the_author_id() );?>"><?=get_the_author_link( );?></a></li>
                               </ul>
@@ -39,11 +47,7 @@
                           
                           <!-- Single title -->
                           <h1 class="text-center"><?php the_title(); ?></h1>
-                          
-                         <!-- Post ft img -->
-                        <div class="blog-single--post-main-img">
-                          <?=the_post_thumbnail('large');?>
-                        </div>
+                         
 
                           
                           <!-- Content! -->
