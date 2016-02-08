@@ -3,7 +3,7 @@
    <main class="cd-main-content">
               <div class="outer-container" >    
       <!-- Шапка страницы с фоном-->
-        <div class="page-header-wrapper row j-center" style="background: url('../img/07-2.jpg'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
+        <div class="page-header-wrapper row j-center" style="background: url('<?=pages_back(get_the_ID ())?>'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
                     <!--*********************
                         function change_bg()
                         *********************-->
@@ -71,10 +71,10 @@
                                                                         $cat = my_category($categories);
                                                                         ?>
                                 <li><span>В рубрике: </span><a href="<?=$cat[link];?>"><?=$cat[name];?></a></li>
-                                <li><span>Автор: </span><a href="#"><?=get_the_author_link( );?></a></li>
+                                <li><span>Автор: </span><a href="<?=get_author_posts_url( get_the_author_id() );?>"><?=get_the_author_link( );?></a></li>
                               </ul>
                             </div>
-                            <div class="col text-right">
+                            <div class="col text-right">    
                               <div class="post-details--read-more-button">
                                 <a href="<?php the_permalink() ?>" class="btn btn-primary">Читать далее</a>
                               </div>

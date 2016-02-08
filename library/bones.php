@@ -514,4 +514,64 @@ add_action('manage_posts_custom_column', 'ST4_columns_content', 10, 2);
 
 //******************\ GET FEATURED IMAGE /**********************/
  //************************\ END /*****************************//
+
+
+
+// users function
+
+$args = array(
+	'blog_id'      => $GLOBALS['blog_id'],
+	'role'         => '',
+	'meta_key'     => '',
+	'meta_value'   => '',
+	'meta_compare' => '',
+	'meta_query'   => array(),
+	'date_query'   => array(),        
+	'include'      => array(),
+	'exclude'      => array(),
+	'orderby'      => 'login',
+	'order'        => 'ASC',
+	'offset'       => '',
+	'search'       => '',
+	'number'       => '',
+	'count_total'  => false,
+	'fields'       => 'all',
+	'who'          => ''
+ ); 
+get_users( $args );
+
+// get avatar
+$args = array(
+	'height'    => '64',
+	'width'     => '64'
+ ); 
+get_avatar( $id_or_email, $size, $default, $alt, $args );
+
+
+/************* Функция добавления случайного автора в виджет ********************/
+
+function randome_author(){
+$user = get_users( );
+$result = count_users();
+$rand = rand(1, $result['total_users'] );
+//$rand = 3;
+$out .= get_avatar( $user[$rand]->id, $size='55').'<br>'
+     
+      
+. '<p><span> <a href="' . get_author_posts_url( $user[$rand]->id ) . '">' .  esc_html( $user[$rand]->display_name ) . '</a></span></p>'                                    
+. '<p>' . get_the_author_meta( description, $user[$rand]->id ) . '</p>'
+. '<p>постов: ' . count_user_posts( $user[$rand]->id , 'post' ) .  '.</p>';                                                             ;                                                           
+                                                                
+                                                                
+                                                             
+						
+return $out;
+
+}
+
+add_shortcode('AUTHOR', 'randome_author');
+
+
+
+
 ?>

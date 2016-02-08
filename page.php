@@ -2,7 +2,7 @@
 
 			<main class="cd-main-content">
 
-   
+   <div class="outer-container" >
       <!-- Шапка страницы с фоном-->
         <div class="page-header-wrapper row j-center" style="background: url('<?=pages_back(get_the_ID ())?>'); background-repeat: no-repeat; background-size: cover; background-color: rgba(24,54,78,0.4);">
                     <!--*********************
