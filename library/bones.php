@@ -551,16 +551,45 @@ get_avatar( $id_or_email, $size, $default, $alt, $args );
 /************* Функция добавления случайного автора в виджет ********************/
 
 function randome_author(){
+    
+    $args = array (
+    'role' => 'editor',
+    'order' => 'ASC',
+    'orderby' => 'display_name',
+    'search' => '*'.esc_attr( $search_term ).'*',
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key'     => 'first_name',
+            'value'   => $search_term,
+            'compare' => 'LIKE'
+        ),
+        array(
+            'key'     => 'last_name',
+            'value'   => $search_term,
+            'compare' => 'LIKE'
+        ),
+        array(
+            'key' => 'description',
+            'value' => $search_term ,
+            'compare' => 'LIKE'
+        )
+    )
+);
+$user_query = new WP_User_Query( $args );
 $user = get_users( );
-$result = count_users();
-$rand = rand(1, $result['total_users'] );
-//$rand = 3;
-$out .= get_avatar( $user[$rand]->id, $size='55').'<br>'
+$result = $user_query->total_users;//count_users();
+$rand = rand(2, $result+1 ); // даже не хочу знать как, но это работает!
+$id = $rand; // actually it's (id-1) and elena and oxana chanched places...
+
+$out .= '<a href="' . get_author_posts_url( $user[$id]->id ) . '">' . get_avatar( $user[$id]->id, $size='135'). '</a>' . '<br>'
      
       
-. '<p><span> <a href="' . get_author_posts_url( $user[$rand]->id ) . '">' .  esc_html( $user[$rand]->display_name ) . '</a></span></p>'                                    
-. '<p>' . get_the_author_meta( description, $user[$rand]->id ) . '</p>'
-. '<p>постов: ' . count_user_posts( $user[$rand]->id , 'post' ) .  '.</p>';                                                             ;                                                           
+. '<p><span> <a href="' . get_author_posts_url( $user[$id]->id ) . '">' .  esc_html( $user[$id]->display_name ) . '</a></span></p>'                                    
+. '<p style="color:#acacac">' . get_the_author_meta( description, $user[$id]->id ) . '</p>'
+//. '<p>ID: ' . $id . '</p>'
+//. '<p>total_users: ' . $result . '</p>'
+. '<p>постов: ' . count_user_posts( $user[$id]->id , 'post' ) .  '.</p>';                                                             ;                                                           
                                                                 
                                                                 
                                                              
