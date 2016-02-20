@@ -147,7 +147,7 @@
     				<ul>
     					<li><a href="/about">О салоне</a></li>
     					<li><a href="/about">Производство</a></li>
-    					<li><a href="#">Как выбрать шторы?</a></li>
+    					<li><a href="/tailor">Пошив штор</a></li>
     					<li class="logo-bottom"><a href="<?php echo home_url(); ?>" rel="nofollow">
                                     <img src="<?php echo get_template_directory_uri(); ?>/library/images/logo-invert.png" alt="GardineGallery logo"></a></li>
     					<li><a href="#">Для бизнеса</a></li>
