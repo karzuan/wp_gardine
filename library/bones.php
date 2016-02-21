@@ -128,6 +128,8 @@ function bones_scripts_and_styles() {
 		// register main stylesheet
 		wp_register_style( 'main', get_stylesheet_directory_uri() . '/library/css/main.css', array(), '', 'all' );
                 wp_register_style( 'fonts', 'https://fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic', array(), '', 'all' );
+          
+                wp_register_style( 'slider_css', get_stylesheet_directory_uri() . '/library/css/style_slider.css', array(), '', 'all' );
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
 		  wp_enqueue_script( 'comment-reply' );
@@ -137,14 +139,24 @@ function bones_scripts_and_styles() {
                 wp_register_script( 'flexslider-min', get_stylesheet_directory_uri() . '/library/js/jquery.flexslider-min.js', array( '' ), '', false );
                 wp_register_script( 'main_script', get_stylesheet_directory_uri() . '/library/js/main.js', array(), '', true );
                 wp_register_script( 'google', get_stylesheet_directory_uri() . '/library/js/google.js', array(), '', true );
+                //slider calc
+                wp_register_script( 'slider', get_stylesheet_directory_uri() . '/library/js/slider.js',  array(), '', false );
+                //wp_register_script( 'cloud', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js',  array(), '', false );
+                //wp_register_script( 'ajax', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js',  array(), '', false );               
 
 		// enqueue styles and scripts
                 wp_enqueue_script( 'flexslider-min' );
                 wp_enqueue_script( 'main_script' );
                 wp_enqueue_script( 'google' );
+                // slider scripts
+                wp_enqueue_script ( 'slider' );
+
 		
                 wp_enqueue_style ( 'main' );
                 wp_enqueue_style ( 'fonts' );
+                wp_enqueue_style ( 'slider_css' );
+                
+
 
 
 	}
@@ -599,6 +611,61 @@ return $out;
 }
 
 add_shortcode('AUTHOR', 'randome_author');
+
+
+// slider cost counter
+
+function my_cost_counter(){
+
+
+$list .= '<table>
+	<tr>
+		<td style="width:60%;">
+                <label>Вид изделия</label>
+			<select id="unit" class="unit" onchange="price()">
+            <option value="1">Жалюзи горизонтальные</option>
+            <option value="2">Рулонные шторы</option>
+            <option value="3">Шторы плиссе</option>
+            <option value="4">Деревянные жалюзи</option>
+            <option value="5">Вертикальные жалюзи</option>
+        	</select>
+        </td>
+		<td>
+                        
+                           <img id="calc_pict" src="http://gardine.ru/wp-content/uploads/2016/02/blinds_1.png" alt="рулонные жалюзи калькулятор плиссе">
+                    
+                </td>
+	</tr>
+	<tr>
+		<td>
+		<label>Ширина</label><br>
+		<input type="range" id="mywidth" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_width()"><span id="slide1">40 см</span>
+		<br>
+		
+		<label>Высота</label><br>
+		<input type="range" id="myheight" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_height()"><span id="slide2">40 см</span>
+		</td>
+		<td>
+			Цена: <span id="price"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td><a href="#zamer"><button >заказать замеры</button></a></td>
+		<td>проконсультируйтесь со специалистом по телефону: 89110012340</td>
+	</tr>
+</table>';
+
+
+
+
+
+return $list;
+
+}
+
+add_shortcode('SLIDER', 'my_cost_counter');
+
 
 
 

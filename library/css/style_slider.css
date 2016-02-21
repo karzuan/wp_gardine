@@ -1,0 +1,15 @@
+.pict_calc{
+    background-image: url(../images/calc_1.png); 
+    background-position: 0% 0%; 
+
+    display:block;
+    position:absolute;
+    //min-height: px;
+    background-repeat:no-repeat;
+    //background-size: 100% 100%;
+    width:122px;
+    height:148px;
+    //float:right;
+    bottom:0;
+    right:0;
+}
