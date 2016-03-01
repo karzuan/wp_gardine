@@ -419,7 +419,7 @@ $b_uri = $wpdb->get_var( 'SELECT b_uri FROM kot_posts WHERE id = ' . get_the_ID 
      if($b_uri) { 
         $b_uri = $b_uri ;        
                       }
-     else $b_uri = 'пустое_поле';
+     //else $b_uri = 'пустое_поле';
     
 ?>
 
@@ -476,7 +476,7 @@ function my_meta_box_save_data( $page_id ) {
          
          else {
              // default picture
-         $b_iri = 'https://lh3.googleusercontent.com/-P67hv3NzJsk/VSjasTIFzcI/AAAAAAAAADA/0hPeCcG-KXE/w1498-h1124-no/';
+         $b_iri = 'https://lh3.googleusercontent.com/-h3XMJgHEfW8/Vs3G088nJpI/AAAAAAAAC0Q/5dtY-AOHj3U/w1772-h918-no/blind-curtains.jpg';
 // get_template_directory_uri();    '/library/images/anypicture.jpg';
               }
          //return $b_iri[b_uri];
@@ -618,43 +618,37 @@ add_shortcode('AUTHOR', 'randome_author');
 function my_cost_counter(){
 
 
-$list .= '<table>
-	<tr>
-		<td style="width:60%;">
-                <label>Вид изделия</label>
-			<select id="unit" class="unit" onchange="price()">
-            <option value="1">Жалюзи горизонтальные</option>
-            <option value="2">Рулонные шторы</option>
-            <option value="3">Шторы плиссе</option>
-            <option value="4">Деревянные жалюзи</option>
-            <option value="5">Вертикальные жалюзи</option>
-        	</select>
-        </td>
-		<td>
-                        
-                           <img id="calc_pict" src="http://gardine.ru/wp-content/uploads/2016/02/blinds_1.png" alt="рулонные жалюзи калькулятор плиссе">
-                    
-                </td>
-	</tr>
-	<tr>
-		<td>
-		<label>Ширина</label><br>
-		<input type="range" id="mywidth" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_width()"><span id="slide1">40 см</span>
-		<br>
-		
-		<label>Высота</label><br>
-		<input type="range" id="myheight" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_height()"><span id="slide2">40 см</span>
-		</td>
-		<td>
-			Цена: <span id="price"></span>
-		</td>
-	</tr>
+$list .= '<div class="row">
+ 				<div class="col">
+					<label>Вид изделия</label>
+                                        <select id="unit" class="unit" onchange="price()">
+            			<option value="1">Жалюзи горизонтальные</option>
+            			<option value="2">Рулонные шторы</option>
+            			<option value="3">Шторы плиссе</option>
+            			<option value="4">Деревянные жалюзи</option>
+            			<option value="5">Вертикальные жалюзи</option>
+        				</select>
+                                        <br><br><br><br><br>
 
-	<tr>
-		<td><a href="#zamer"><button >заказать замеры</button></a></td>
-		<td>проконсультируйтесь со специалистом по телефону: 89110012340</td>
-	</tr>
-</table>';
+        				<label>Ширина</label><br>
+						<input type="range" id="mywidth" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_width()"><span id="slide1">40 см</span>
+
+						<br>
+		
+						<label>Высота</label><br>
+						<input type="range" id="myheight" min="40" max="290" value="0" step="1" style="width:80%" onchange="ch_height()"><span id="slide2">40 см</span>
+                                                <p>проконсультируйтесь со специалистом по телефону: <strong>89110012340</strong></p>
+
+
+				</div>
+				<div class="col">
+						<img id="calc_pict" src="http://gardine.ru/wp-content/uploads/2016/02/blinds_1.png" alt="рулонные жалюзи калькулятор плиссе">
+						
+						<p>Цена: <strong><span id="price"></span></strong></p>
+						<p><a href="#zamer"><button style="background-color:green; color:white;">заказать замеры</button></a></p>
+						
+				</div>
+</div>';
 
 
 
@@ -665,6 +659,8 @@ return $list;
 }
 
 add_shortcode('SLIDER', 'my_cost_counter');
+
+
 
 
 
