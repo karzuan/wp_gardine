@@ -45,6 +45,7 @@
     											<li><a href="http://gardine.ru/katalog-shtor/hall">Шторы для холла</a></li>
                                                 <li><a href="http://gardine.ru/katalog-shtor/bathroom">Шторы для бассеина</a></li>
     											<li><a href="http://gardine.ru/katalog-shtor/oddshaped">Шторы для нестандартных окон</a></li>
+                                                <li><a href="http://gardine.ru/katalog-shtor/hotels">Шторы для отелей</a></li>
     						</ul>
     					</li>					
     					<li class="has-children">
